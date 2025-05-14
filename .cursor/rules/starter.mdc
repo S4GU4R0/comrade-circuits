@@ -1,0 +1,49 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Project Context: Based on React TypeScript Vite Template
+
+This project is **built using** the React 19 + TypeScript + Vite Template, which provides a modern setup with Vite for fast development, TailwindCSS for styling, TanStack Router for routing, and TanStack Query for data fetching. The template is designed for scalable, client-side rendered applications with a focus on best practices and developer experience.
+
+## Project Structure
+- **Entry Point:** [`src/main.tsx`](mdc:src/main.tsx) bootstraps the app, sets up the router and query client providers.
+- **Routing:**
+  - Routes are defined in [`src/routes/`](mdc:src/routes) and registered via a generated tree in [`src/routeTree.gen.ts`](mdc:src/routeTree.gen.ts).
+  - The root layout is in [`src/routes/__root.tsx`](mdc:src/routes/__root.tsx), which provides navigation and devtools.
+  - Example routes: Home (`index.lazy.tsx`), Demo (`demo.tsx`, `demo.lazy.tsx`).
+- **Components:**
+  - Shared UI components are in [`src/components/`](mdc:src/components), e.g. [`tech-cards.tsx`](mdc:src/components/tech-cards.tsx), [`error-display.tsx`](mdc:src/components/error-display.tsx), [`not-found.tsx`](mdc:src/components/not-found.tsx), [`pending-component.tsx`](mdc:src/components/pending-component.tsx).
+  - Technology icons are in [`tech-icons.tsx`](mdc:src/components/tech-icons.tsx).
+- **Data Fetching:**
+  - Example query in [`src/queries/fetchPosts.ts`](mdc:src/queries/fetchPosts.ts) using TanStack Query.
+- **Styling:**
+  - TailwindCSS is configured in [`tailwind.config.ts`](mdc:tailwind.config.ts) and imported via [`src/styles/index.css`](mdc:src/styles/index.css).
+- **Testing:**
+  - Utilities for testing with router and query client context are in [`tests/utils/render-with-router/`](mdc:tests/utils/render-with-router), with setup in [`tests/setup.tsx`](mdc:tests/setup.tsx).
+- **Configuration:**
+  - Vite config: [`vite.config.ts`](mdc:vite.config.ts)
+  - TypeScript config: [`tsconfig.app.json`](mdc:tsconfig.app.json), [`tsconfig.json`](mdc:tsconfig.json)
+  - Package scripts and dependencies: [`package.json`](mdc:package.json)
+
+## Key Technologies
+- **React 19** (with React Compiler)
+- **Vite** (fast dev/build)
+- **TypeScript** (strict, with path aliases)
+- **TailwindCSS** (utility-first CSS)
+- **daisyUI** (Tailwind CSS component library)
+- **daisyUI-React** (React component bindings for daisyUI)
+- **TanStack Router** (type-safe routing)
+- **TanStack Query** (data fetching/caching)
+- **Vitest** (testing)
+
+## Usage Notes
+- All routes and components use functional React patterns.
+- The project is optimized for client-side rendering (CSR).
+- Testing utilities allow rendering components with router/query context for robust tests.
+- TailwindCSS is used for all styling; see [`tailwind.config.ts`](mdc:tailwind.config.ts) for customization.
+
+---
+
+**Use this rule as a reference for project structure, main files, and technology stack when answering queries about this codebase. This project is an instance created from the React TypeScript Vite Template, not the template source itself.**

@@ -4,6 +4,7 @@ import { StrictMode } from "react";
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { createRouter, RouterProvider } from "@tanstack/react-router";
+import { Theme } from "react-daisyui";
 import ReactDOM from "react-dom/client";
 
 import { ErrorDisplay } from "./components/error-display";
@@ -41,7 +42,9 @@ if (!rootElement.innerHTML) {
   root.render(
     <StrictMode>
       <QueryClientProvider client={queryClient}>
-        <RouterProvider router={router} />
+        <Theme dataTheme="cyberpunk">
+          <RouterProvider router={router} />
+        </Theme>
       </QueryClientProvider>
     </StrictMode>,
   );

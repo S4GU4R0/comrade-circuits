@@ -16,20 +16,20 @@ export const Route = createLazyFileRoute("/")({
 
 function WelcomeComponent() {
   return (
-    <div className="flex h-screen w-screen flex-col bg-gray-900 text-white md:flex-row">
+    <div className="flex h-screen w-screen flex-col md:flex-row">
       <div className="flex w-full flex-col justify-center p-16 md:w-1/2">
-        <h1 className="mb-8 text-5xl font-extrabold text-blue-400">
+        <h1 className="mb-8 text-5xl font-extrabold">
           Welcome to Your New React Template!
         </h1>
-        <p className="mb-8 text-lg leading-relaxed text-gray-300">
+        <p className="mb-8 text-lg leading-relaxed">
           Get started by exploring the file structure and modifying the
           components. This template provides a solid foundation for building
           modern React applications. Enjoy the power of TanStack Router and
           TanStack Query for client side applications.
         </p>
       </div>
-      <div className="flex w-full flex-col justify-center bg-gray-800 p-16 md:w-1/2">
-        <h2 className="mb-8 text-3xl font-bold text-blue-400">Built With:</h2>
+      <div className="flex w-full flex-col justify-center p-16 md:w-1/2">
+        <h2 className="mb-8 text-3xl font-bold">Built With:</h2>
         <div className="grid grid-cols-2 gap-8">
           <TechCard
             icon={<ReactIcon />}

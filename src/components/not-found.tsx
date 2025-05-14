@@ -2,17 +2,17 @@ import { Link } from "@tanstack/react-router";
 
 export function NotFound() {
   return (
-    <div className="flex h-screen w-screen items-center justify-center bg-gray-900">
-      <div className="rounded-lg bg-gray-800 p-8 shadow-2xl">
-        <h1 className="mb-4 text-3xl font-bold text-yellow-400">
+    <div className="bg-base-100 flex h-screen w-screen items-center justify-center">
+      <div className="bg-base-300 rounded-lg p-8 shadow-2xl">
+        <h1 className="text-warning mb-4 text-3xl font-bold">
           404 - Not Found
         </h1>
-        <p className="mb-6 text-gray-300">
+        <p className="text-base-content mb-6">
           The page you are looking for does not exist.
         </p>
         <Link
           to="/"
-          className="rounded bg-blue-500 px-4 py-2 font-bold text-white transition-colors hover:bg-blue-600"
+          className="bg-primary text-primary-content hover:bg-primary/80 rounded px-4 py-2 font-bold transition-colors"
         >
           Go Home
         </Link>

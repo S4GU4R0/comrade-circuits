@@ -1,3 +1,40 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+@import "tailwindcss";
+@plugin "daisyui";
+@plugin "daisyui/theme" {
+  name: "cyberpunk";
+  --color-base-100: theme(colors.stone.900);
+  --color-base-200: theme(colors.stone.900);
+  --color-base-300: theme(colors.stone.900);
+  --color-base-content: theme(colors.white);
+  --color-primary: theme(colors.yellow.800);
+  --color-primary-content: theme(colors.black);
+  --color-secondary: theme(colors.yellow.400);
+  --color-secondary-content: theme(colors.red.900);
+  --color-accent: theme(colors.yellow.300);
+  --color-accent-content: theme(colors.red.900);
+  --color-neutral: theme(colors.red.900);
+  --color-neutral-content: theme(colors.white);
+  --color-info: theme(colors.yellow.400);
+  --color-info-content: theme(colors.red.900);
+  --color-success: theme(colors.yellow.300);
+  --color-success-content: theme(colors.red.900);
+  --color-warning: theme(colors.yellow.500);
+  --color-warning-content: theme(colors.red.900);
+  --color-error: theme(colors.red.700);
+  --color-error-content: theme(colors.yellow.200);
+}
+
+@theme {
+  --font-heading: "Press Start 2P", cursive;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  color: var(--color-secondary);
+}
