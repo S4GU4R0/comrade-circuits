@@ -13,7 +13,10 @@ import { createFileRoute } from "@tanstack/react-router";
 // Import Routes
 
 import { Route as rootRoute } from "./routes/__root";
-import { Route as DemoImport } from "./routes/demo";
+import { Route as ForumIndexImport } from "./routes/forum/index";
+import { Route as ForumThreadthreadIdImport } from "./routes/forum/thread_$threadId";
+import { Route as ForumNewImport } from "./routes/forum/new";
+import { Route as ForumThreadthreadIdReplyImport } from "./routes/forum/thread_$threadId/reply";
 
 // Create Virtual Routes
 
@@ -21,17 +24,35 @@ const IndexLazyImport = createFileRoute("/")();
 
 // Create/Update Routes
 
-const DemoRoute = DemoImport.update({
-  id: "/demo",
-  path: "/demo",
-  getParentRoute: () => rootRoute,
-} as any).lazy(() => import("./routes/demo.lazy").then((d) => d.Route));
-
 const IndexLazyRoute = IndexLazyImport.update({
   id: "/",
   path: "/",
   getParentRoute: () => rootRoute,
 } as any).lazy(() => import("./routes/index.lazy").then((d) => d.Route));
+
+const ForumIndexRoute = ForumIndexImport.update({
+  id: "/forum/",
+  path: "/forum/",
+  getParentRoute: () => rootRoute,
+} as any);
+
+const ForumThreadthreadIdRoute = ForumThreadthreadIdImport.update({
+  id: "/forum/thread_$threadId",
+  path: "/forum/thread_$threadId",
+  getParentRoute: () => rootRoute,
+} as any);
+
+const ForumNewRoute = ForumNewImport.update({
+  id: "/forum/new",
+  path: "/forum/new",
+  getParentRoute: () => rootRoute,
+} as any);
+
+const ForumThreadthreadIdReplyRoute = ForumThreadthreadIdReplyImport.update({
+  id: "/reply",
+  path: "/reply",
+  getParentRoute: () => ForumThreadthreadIdRoute,
+} as any);
 
 // Populate the FileRoutesByPath interface
 
@@ -44,51 +65,112 @@ declare module "@tanstack/react-router" {
       preLoaderRoute: typeof IndexLazyImport;
       parentRoute: typeof rootRoute;
     };
-    "/demo": {
-      id: "/demo";
-      path: "/demo";
-      fullPath: "/demo";
-      preLoaderRoute: typeof DemoImport;
+    "/forum/new": {
+      id: "/forum/new";
+      path: "/forum/new";
+      fullPath: "/forum/new";
+      preLoaderRoute: typeof ForumNewImport;
       parentRoute: typeof rootRoute;
+    };
+    "/forum/thread_$threadId": {
+      id: "/forum/thread_$threadId";
+      path: "/forum/thread_$threadId";
+      fullPath: "/forum/thread_$threadId";
+      preLoaderRoute: typeof ForumThreadthreadIdImport;
+      parentRoute: typeof rootRoute;
+    };
+    "/forum/": {
+      id: "/forum/";
+      path: "/forum";
+      fullPath: "/forum";
+      preLoaderRoute: typeof ForumIndexImport;
+      parentRoute: typeof rootRoute;
+    };
+    "/forum/thread_$threadId/reply": {
+      id: "/forum/thread_$threadId/reply";
+      path: "/reply";
+      fullPath: "/forum/thread_$threadId/reply";
+      preLoaderRoute: typeof ForumThreadthreadIdReplyImport;
+      parentRoute: typeof ForumThreadthreadIdImport;
     };
   }
 }
 
 // Create and export the route tree
 
+interface ForumThreadthreadIdRouteChildren {
+  ForumThreadthreadIdReplyRoute: typeof ForumThreadthreadIdReplyRoute;
+}
+
+const ForumThreadthreadIdRouteChildren: ForumThreadthreadIdRouteChildren = {
+  ForumThreadthreadIdReplyRoute: ForumThreadthreadIdReplyRoute,
+};
+
+const ForumThreadthreadIdRouteWithChildren =
+  ForumThreadthreadIdRoute._addFileChildren(ForumThreadthreadIdRouteChildren);
+
 export interface FileRoutesByFullPath {
   "/": typeof IndexLazyRoute;
-  "/demo": typeof DemoRoute;
+  "/forum/new": typeof ForumNewRoute;
+  "/forum/thread_$threadId": typeof ForumThreadthreadIdRouteWithChildren;
+  "/forum": typeof ForumIndexRoute;
+  "/forum/thread_$threadId/reply": typeof ForumThreadthreadIdReplyRoute;
 }
 
 export interface FileRoutesByTo {
   "/": typeof IndexLazyRoute;
-  "/demo": typeof DemoRoute;
+  "/forum/new": typeof ForumNewRoute;
+  "/forum/thread_$threadId": typeof ForumThreadthreadIdRouteWithChildren;
+  "/forum": typeof ForumIndexRoute;
+  "/forum/thread_$threadId/reply": typeof ForumThreadthreadIdReplyRoute;
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute;
   "/": typeof IndexLazyRoute;
-  "/demo": typeof DemoRoute;
+  "/forum/new": typeof ForumNewRoute;
+  "/forum/thread_$threadId": typeof ForumThreadthreadIdRouteWithChildren;
+  "/forum/": typeof ForumIndexRoute;
+  "/forum/thread_$threadId/reply": typeof ForumThreadthreadIdReplyRoute;
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath;
-  fullPaths: "/" | "/demo";
+  fullPaths:
+    | "/"
+    | "/forum/new"
+    | "/forum/thread_$threadId"
+    | "/forum"
+    | "/forum/thread_$threadId/reply";
   fileRoutesByTo: FileRoutesByTo;
-  to: "/" | "/demo";
-  id: "__root__" | "/" | "/demo";
+  to:
+    | "/"
+    | "/forum/new"
+    | "/forum/thread_$threadId"
+    | "/forum"
+    | "/forum/thread_$threadId/reply";
+  id:
+    | "__root__"
+    | "/"
+    | "/forum/new"
+    | "/forum/thread_$threadId"
+    | "/forum/"
+    | "/forum/thread_$threadId/reply";
   fileRoutesById: FileRoutesById;
 }
 
 export interface RootRouteChildren {
   IndexLazyRoute: typeof IndexLazyRoute;
-  DemoRoute: typeof DemoRoute;
+  ForumNewRoute: typeof ForumNewRoute;
+  ForumThreadthreadIdRoute: typeof ForumThreadthreadIdRouteWithChildren;
+  ForumIndexRoute: typeof ForumIndexRoute;
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexLazyRoute: IndexLazyRoute,
-  DemoRoute: DemoRoute,
+  ForumNewRoute: ForumNewRoute,
+  ForumThreadthreadIdRoute: ForumThreadthreadIdRouteWithChildren,
+  ForumIndexRoute: ForumIndexRoute,
 };
 
 export const routeTree = rootRoute
@@ -102,14 +184,29 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
-        "/demo"
+        "/forum/new",
+        "/forum/thread_$threadId",
+        "/forum/"
       ]
     },
     "/": {
       "filePath": "index.lazy.tsx"
     },
-    "/demo": {
-      "filePath": "demo.tsx"
+    "/forum/new": {
+      "filePath": "forum/new.tsx"
+    },
+    "/forum/thread_$threadId": {
+      "filePath": "forum/thread_$threadId.tsx",
+      "children": [
+        "/forum/thread_$threadId/reply"
+      ]
+    },
+    "/forum/": {
+      "filePath": "forum/index.tsx"
+    },
+    "/forum/thread_$threadId/reply": {
+      "filePath": "forum/thread_$threadId/reply.tsx",
+      "parent": "/forum/thread_$threadId"
     }
   }
 }

@@ -1,3 +1,6 @@
+
+.env 
+
 # Logs
 logs
 *.log
@@ -13,6 +16,7 @@ dist-ssr
 *.local
 
 # Editor directories and files
+.cursor/*
 .vscode/*
 !.vscode/extensions.json
 .idea
