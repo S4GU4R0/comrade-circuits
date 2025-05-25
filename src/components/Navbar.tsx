@@ -39,15 +39,6 @@ export function Navbar() {
             <li>
               <Link to="/forum">Forum</Link>
             </li>
-            {/* <li>
-              <Link to="/about">About</Link>
-            </li>
-            <li>
-              <Link to="/contact">Contact</Link>
-            </li> */}
-            <li>
-              <Link to="/demo">Demo</Link>
-            </li>
           </ul>
         </div>
         {/* Desktop menu */}
@@ -57,15 +48,6 @@ export function Navbar() {
           </li>
           <li>
             <Link to="/forum">Forum</Link>
-          </li>
-          {/* <li>
-            <Link to="/about">About</Link>
-          </li>
-          <li>
-            <Link to="/contact">Contact</Link>
-          </li> */}
-          <li>
-            <Link to="/demo">Demo</Link>
           </li>
         </ul>
       </div>
