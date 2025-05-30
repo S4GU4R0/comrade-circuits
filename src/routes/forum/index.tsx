@@ -1,6 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import { createFileRoute, Link, Outlet } from "@tanstack/react-router";
 
+import { Layout } from "@/components/layout";
+
 import { postsQueryOptions } from "../../queries/fetchPosts";
 
 export const Route = createFileRoute("/forum/")({
@@ -11,12 +13,25 @@ function ForumIndex() {
   const { data, isLoading, isError, error } = useQuery(postsQueryOptions);
 
   return (
-    <div className="container mx-auto p-4">
+    <Layout>
       <div className="mb-4 flex items-center justify-between">
         <h1 className="text-2xl font-bold">Forum</h1>
         <Link to="/forum/new">
           <button className="btn btn-primary">New Thread</button>
         </Link>
+      </div>
+      <div className="flex h-24 w-full items-center justify-center">
+        <button className="mr-2 h-16 w-16 cursor-pointer border-[1px] border-blue-400 bg-blue-500 [box-shadow:0_8px_0_0_#1b6ff8,0_13px_0_0_#1b70f841] transition-all duration-150 select-none active:translate-y-2 active:border-b-[0px] active:[box-shadow:0_0px_0_0_#1b6ff8,0_0px_0_0_#1b70f841]">
+          Help
+        </button>
+        <button
+          // onMouseDown={() => {
+          //   play();
+          // }}
+          className="mr-2 h-16 w-16 cursor-pointer border-[1px] border-blue-400 bg-blue-500 [box-shadow:0_8px_0_0_#1b6ff8,0_13px_0_0_#1b70f841] transition-all duration-150 select-none active:translate-y-2 active:border-b-[0px] active:[box-shadow:0_0px_0_0_#1b6ff8,0_0px_0_0_#1b70f841]"
+        >
+          Test
+        </button>
       </div>
       {/* Thread list - mobile cards */}
       <div className="space-y-4 md:hidden">
@@ -42,16 +57,16 @@ function ForumIndex() {
               params={{ threadId: String(thread.id) }}
               className="block"
             >
-              <div className="card bg-base-100 hover:bg-base-200 shadow transition">
+              <div className="card bg-primary text-primary-content hover:bg-base-200 shadow transition">
                 <div className="card-body">
-                  <h2 className="card-title text-primary-content text-base">
+                  <h2 className="card-title text-primary-content text-sm">
                     {thread.title}
                   </h2>
-                  <div className="text-base-content/70 mb-1 text-xs">
+                  <div className="mb-1 text-xs font-bold text-black">
                     by User{thread.userId} • Replies:{" "}
                     {Math.floor(Math.random() * 20)}
                   </div>
-                  <div className="text-base-content/50 text-xs">
+                  <div className="text-md text-black">
                     Last post: Today by User{thread.userId}
                   </div>
                 </div>
@@ -119,6 +134,6 @@ function ForumIndex() {
       </div>
       {/* Nested routes (e.g., modal for new thread) */}
       <Outlet />
-    </div>
+    </Layout>
   );
 }

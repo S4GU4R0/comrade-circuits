@@ -6,26 +6,26 @@
 @plugin "daisyui";
 @plugin "daisyui/theme" {
   name: "cyberpunk";
-  --color-base-100: theme(colors.stone.900);
-  --color-base-200: theme(colors.stone.900);
-  --color-base-300: theme(colors.stone.900);
-  --color-base-content: theme(colors.white);
-  --color-primary: theme(colors.yellow.800);
+  --color-base-100: theme(colors.black);
+  --color-base-200: theme(colors.black);
+  --color-base-300: theme(colors.black);
+  --color-base-content: #e1d1b5;
+  --color-primary: #d03726;
   --color-primary-content: theme(colors.black);
-  --color-secondary: theme(colors.yellow.400);
-  --color-secondary-content: theme(colors.red.900);
-  --color-accent: theme(colors.yellow.300);
-  --color-accent-content: theme(colors.red.900);
-  --color-neutral: theme(colors.red.900);
-  --color-neutral-content: theme(colors.white);
+  --color-secondary: #f0a33a;
+  --color-secondary-content: #e1d1b5;
+  --color-accent: #f0a33a;
+  --color-accent-content: #e1d1b5;
+  --color-neutral: #e1d1b5;
+  --color-neutral-content: theme(colors.black);
   --color-info: theme(colors.yellow.400);
-  --color-info-content: theme(colors.red.900);
-  --color-success: theme(colors.yellow.300);
-  --color-success-content: theme(colors.red.900);
+  --color-info-content: #e1d1b5;
+  --color-success: #f0a33a;
+  --color-success-content: #e1d1b5;
   --color-warning: theme(colors.yellow.500);
-  --color-warning-content: theme(colors.red.900);
+  --color-warning-content: #e1d1b5;
   --color-error: theme(colors.red.700);
-  --color-error-content: theme(colors.yellow.200);
+  --color-error-content: #e1d1b5;
 }
 
 @theme {
@@ -38,6 +38,15 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-heading);
-  color: var(--color-secondary);
+  @apply text-neutral font-heading uppercase;
+  /** text outline effect */
+  text-shadow:
+    0.08em 0 black,
+    0 0.08em black,
+    -0.08em 0 black,
+    0 -0.08em black,
+    -0.08em -0.08em black,
+    -0.08em 0.08em black,
+    0.08em -0.08em black,
+    0.05em 0.05em black;
 }

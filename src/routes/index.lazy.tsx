@@ -1,13 +1,15 @@
 import { createLazyFileRoute } from "@tanstack/react-router";
 
-import { TechCard } from "../components/tech-cards";
+import { Layout } from "@/components/layout";
+import { TechCard } from "@/components/tech-cards";
+
 import {
-  ReactIcon,
-  TailwindIcon,
-  TanStackIcon,
-  TypeScriptIcon,
-  ViteIcon,
-} from "../components/tech-icons";
+  CallMeIcon,
+  ChatIcon,
+  FilingIcon,
+  SailboatIcon,
+  VoteIcon,
+} from "../components/icons";
 
 export const Route = createLazyFileRoute("/")({
   component: WelcomeComponent,
@@ -15,63 +17,98 @@ export const Route = createLazyFileRoute("/")({
 
 function WelcomeComponent() {
   return (
-    <section className="hero bg-base-200 min-h-screen">
-      <div className="hero-content w-full flex-col p-0 md:flex-row">
-        <div className="flex w-full flex-col justify-center p-8 md:w-1/2 md:p-16">
-          <h1 className="text-primary font-heading mb-8 text-4xl font-extrabold">
-            Comrade Circuits
-          </h1>
-          <p className="text-base-content mb-8 text-lg leading-relaxed">
-            Get started by exploring the file structure and modifying the
-            components. This template provides a solid foundation for building
-            modern React applications. Enjoy the power of TanStack Router and
-            TanStack Query for client side applications.
-          </p>
+    <Layout>
+      <section className="bg-base-200 md:mt-0 md:flex md:items-start md:justify-between">
+        <div className="hero flex min-h-[85vh] w-full flex-col items-center md:mt-0 md:w-1/2">
+          <div className="my-auto flex w-[80%] flex-col justify-center md:my-0">
+            <div className="border-box text-primary font-heading border-neutral shadow-4xl mb-8 box-content h-80 w-full border-t-12 border-r-18 border-b-24 border-l-6 uppercase shadow-black md:w-96">
+              <h1 className="flex flex-nowrap pl-4 text-8xl md:text-8xl">
+                {"Comr".split("").map((character, index) => (
+                  <span
+                    className="text-primary -ml-5 inline-block"
+                    style={{ zIndex: ("Comrade".length - index) * 10 }}
+                    key={character + index + "--comr"}
+                  >
+                    {character}
+                  </span>
+                ))}
+              </h1>
+              <h1 className="flex flex-nowrap pl-4 text-8xl md:text-8xl">
+                {"ade".split("").map((character, index) => (
+                  <span
+                    className="text-primary -ml-5 inline-block"
+                    style={{ zIndex: ("Comrade".length - index) * 10 }}
+                    key={character + index + "--ade"}
+                  >
+                    {character}
+                  </span>
+                ))}
+                <span className="inline-block text-7xl md:text-6xl">✊</span>
+              </h1>
+              <h1 className="flex flex-nowrap pl-4 text-8xl md:text-8xl">
+                {"Circ".split("").map((character, index) => (
+                  <span
+                    className="text-secondary -ml-5 inline-block"
+                    style={{ zIndex: ("Comrade".length - index) * 10 }}
+                    key={character + index + "--circ"}
+                  >
+                    {character}
+                  </span>
+                ))}
+              </h1>
+              <h1 className="flex flex-nowrap pl-4 text-8xl md:text-8xl">
+                {"uits".split("").map((character, index) => (
+                  <span
+                    className="text-secondary -ml-5 inline-block"
+                    style={{ zIndex: ("Comrade".length - index) * 10 }}
+                    key={character + index + "--uits"}
+                  >
+                    {character}
+                  </span>
+                ))}
+              </h1>
+            </div>
+          </div>
         </div>
-        <div className="bg-base-100 rounded-box flex w-full flex-col justify-center p-8 md:w-1/2 md:p-16">
-          <h2 className="text-secondary font-heading mb-8 text-3xl font-bold">
-            Member Benefits
-          </h2>
-          <div className="grid grid-cols-2 gap-8">
+
+        <section className="bg-base-100 mx-auto mt-24 flex w-full flex-col justify-center px-4 md:mt-0 md:w-1/2">
+          <div className="flex flex-wrap items-center justify-center md:mx-auto md:grid md:grid-cols-2 md:grid-rows-3 md:items-start md:gap-2 md:p-0">
+            <h2 className="text-neutral font-heading bg-primary border-b-neutral border-l-primary mb-8 border-b-4 pt-2 pl-2 text-3xl font-bold wrap-break-word uppercase md:aspect-square md:text-4xl">
+              Member Benefits
+            </h2>
             <TechCard
-              icon={<ReactIcon />}
-              title="React 19"
-              description="A JavaScript library for building user interfaces"
+              icon={<CallMeIcon />}
+              title="Live Support"
+              description="6 help sessions each year for generalized troubleshooting"
               link="https://react.dev/"
             />
             <TechCard
-              icon={<TypeScriptIcon />}
-              title="TypeScript"
-              description="A superset of JavaScript that adds static typing"
+              icon={<FilingIcon />}
+              title="Resource Library"
+              description="Database of resources tailored to the working class."
               link="https://www.typescriptlang.org/"
             />
             <TechCard
-              icon={<ViteIcon />}
-              title="Vite"
-              description="A fast build tool and development server"
+              icon={<ChatIcon />}
+              title="Community Forum"
+              description="For when you have a question but don't need an appointment"
               link="https://vitejs.dev/"
             />
             <TechCard
-              icon={<TailwindIcon />}
-              title="Tailwind CSS"
-              description="A utility-first CSS framework"
+              icon={<VoteIcon />}
+              title="Member Voting"
+              description="Have a say in future offerings and improvements"
               link="https://tailwindcss.com/"
             />
             <TechCard
-              icon={<TanStackIcon />}
-              title="TanStack Router"
-              description="Type-safe routing for React"
+              icon={<SailboatIcon />}
+              title="Member Sales"
+              description="Members-only freebies and discounts"
               link="https://tanstack.com/router/v1"
             />
-            <TechCard
-              icon={<TanStackIcon />}
-              title="TanStack Query"
-              description="Powerful data synchronization for React"
-              link="https://tanstack.com/query/v5"
-            />
           </div>
-        </div>
-      </div>
-    </section>
+        </section>
+      </section>
+    </Layout>
   );
 }
