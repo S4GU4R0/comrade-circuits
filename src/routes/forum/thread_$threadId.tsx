@@ -235,7 +235,7 @@ function ThreadView() {
 
   return (
     <div className="container mx-auto p-4">
-      <div className="card bg-base-100 mb-4 shadow">
+      <div className="card bg-primary mb-4 shadow">
         <div className="card-body">
           <div className="text-base-content/70 mb-1 text-xs">
             {thread.author} • {thread.createdAt}
@@ -265,6 +265,7 @@ function ThreadView() {
               <div className="text-base-content/70 mb-1 text-xs">
                 {reply.author} • {reply.createdAt}
               </div>
+              {/* TODO: this reply.content needs to support markdown */}
               <p className="text-base-content mb-2">{reply.content}</p>
               <ReactionButtons
                 reactions={reply.reactions}

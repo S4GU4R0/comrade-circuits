@@ -13,7 +13,7 @@
   --color-primary: #d03726;
   --color-primary-content: theme(colors.black);
   --color-secondary: #f0a33a;
-  --color-secondary-content: #e1d1b5;
+  --color-secondary-content: theme(colors.black);
   --color-accent: #f0a33a;
   --color-accent-content: #e1d1b5;
   --color-neutral: #e1d1b5;

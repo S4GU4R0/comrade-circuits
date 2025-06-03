@@ -19,9 +19,9 @@ function WelcomeComponent() {
   return (
     <Layout>
       <section className="bg-base-200 md:mt-0 md:flex md:items-start md:justify-between">
-        <div className="hero flex min-h-[85vh] w-full flex-col items-center md:mt-0 md:w-1/2">
-          <div className="my-auto flex w-[80%] flex-col justify-center md:my-0">
-            <div className="border-box text-primary font-heading border-neutral shadow-4xl mb-8 box-content h-80 w-full border-t-12 border-r-18 border-b-24 border-l-6 uppercase shadow-black md:w-96">
+        <div className="hero mx-0 flex min-h-[85vh] w-full flex-col items-center justify-center md:mt-0 md:w-1/2">
+          <div className="my-auto -ml-5 flex w-[80%] flex-col justify-center md:my-0">
+            <div className="border-box text-primary font-heading border-neutral shadow-4xl mb-8 box-content h-80 w-full border-t-12 border-r-6 border-b-24 border-l-18 uppercase shadow-black md:w-96">
               <h1 className="flex flex-nowrap pl-4 text-8xl md:text-8xl">
                 {"Comr".split("").map((character, index) => (
                   <span

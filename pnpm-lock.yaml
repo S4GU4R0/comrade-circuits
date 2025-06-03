@@ -35,12 +35,6 @@ importers:
       react-modern-drawer:
         specifier: ^1.4.0
         version: 1.4.0(react@19.0.0)
-      react-responsive-masonry:
-        specifier: ^2.7.1
-        version: 2.7.1
-      react-sounds:
-        specifier: ^1.0.25
-        version: 1.0.25(howler@2.2.4)(react@19.0.0)
     devDependencies:
       '@eslint-react/eslint-plugin':
         specifier: ^1.26.2
@@ -2687,16 +2681,6 @@ packages:
   react-refresh@0.14.2:
     resolution: {integrity: sha512-jCvmsr+1IUSMUyzOkRcvnVbX3ZYC6g9TDrDbFuFmRDq7PD4yaGbLKNQL6k2jnArV8hjYxh7hVhAZB6s9HDGpZA==}
     engines: {node: '>=0.10.0'}
-
-  react-responsive-masonry@2.7.1:
-    resolution: {integrity: sha512-Q+u+nOH87PzjqGFd2PgTcmLpHPZnCmUPREHYoNBc8dwJv6fi51p9U6hqwG8g/T8MN86HrFjrU+uQU6yvETU7cA==}
-
-  react-sounds@1.0.25:
-    resolution: {integrity: sha512-szyOayVjaTomED1MSQdcNw5gBxHffClR982sl3yxeUi3hmmfJZf0Q1+hneab7z8x4khM64bvlrF4VQltzyEjUg==}
-    hasBin: true
-    peerDependencies:
-      howler: ^2.2.3
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
   react@19.0.0:
     resolution: {integrity: sha512-V8AVnmPIICiWpGfm6GLzCR/W5FXLchHop40W4nXBmdlEceh16rCN8O8LNWm5bh5XUX91fh7KpA+W0TgMKmgTpQ==}
@@ -5788,13 +5772,6 @@ snapshots:
       react: 19.0.0
 
   react-refresh@0.14.2: {}
-
-  react-responsive-masonry@2.7.1: {}
-
-  react-sounds@1.0.25(howler@2.2.4)(react@19.0.0):
-    dependencies:
-      howler: 2.2.4
-      react: 19.0.0
 
   react@19.0.0: {}
 
